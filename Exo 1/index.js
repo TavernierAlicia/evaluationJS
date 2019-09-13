@@ -25,7 +25,7 @@ GridGenerator.prototype.setInterval = function(el) {
 	setTimeout(function() {
 		el.style.background = this.randomColor();
 		this.setInterval(el);
-	}.bind(this), 500)
+	}.bind(this), this.randomNumber(1000, 2000))
 }
 
 /**
@@ -53,6 +53,10 @@ GridGenerator.prototype.renderGrid = function() {
 
 	elBody.appendChild(elTable);
 }
+
+GridGenerator.prototype.randomNumber = function(min, max) {
+	return Math.floor(Math.random() * (max - min)) + min; ;
+} 
 
 /**
  * randomColor
