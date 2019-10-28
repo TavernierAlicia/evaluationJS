@@ -13,8 +13,10 @@ function createForm() {
     
     //create input text
     var elLabelName = document.createElement('label');
+    elLabelName.style.marginTop = '20px';
     elLabelName.style.display = 'block';
     elLabelName.innerText = 'Enter your name here';
+    elLabelName.setAttribute('for', 'name');
     //create p (display errors)
     var elPname = document.createElement('p');
     elPname.setAttribute('id', 'pname');
@@ -26,8 +28,10 @@ function createForm() {
 
     //create input text
     var elLabelSurname = document.createElement('label');
+    elLabelSurname.style.marginTop = '20px';
     elLabelSurname.style.display = 'block';
     elLabelSurname.innerText = 'Enter your surname here';
+    elLabelSurname.setAttribute('for', 'surname');
     //create p (display errors)
     var elPsurname = document.createElement('p');
     elPsurname.setAttribute('id', 'psurname');
@@ -39,8 +43,10 @@ function createForm() {
 
     //create input text
     var elLabelMail = document.createElement('label');
+    elLabelMail.style.marginTop = '20px';
     elLabelMail.style.display = 'block';
     elLabelMail.innerText = 'Enter your mail here';
+    elLabelMail.setAttribute('for', 'mail');
     //create p (display errors)
     var elPmail = document.createElement('p');
     elPmail.setAttribute('id', 'pmail');
@@ -52,13 +58,16 @@ function createForm() {
 
     //create input text (passw)
     var elLabelPass = document.createElement('label');
+    elLabelPass.style.marginTop = '20px';
     elLabelPass.style.display = 'block';
     elLabelPass.innerText = 'Enter a password with at least 1 maj, 1min, 1 number and 1 special char.'; 
+    elLabelPass.setAttribute('for', 'pass');
     //create p (display errors)
     var elPpass = document.createElement('p');
     elPpass.setAttribute('id', 'ppass');
     elPpass.style.color = 'red';    
     var elInputPass = document.createElement('input');
+    elInputPass.style.marginBottom = '3px';
     elInputPass.setAttribute('type', 'password');
     elInputPass.setAttribute('id', 'pass');
     elInputPass.style.display = 'block';
@@ -110,8 +119,7 @@ function verify() {
 
     //create regexes
     var nameReg = new RegExp('^[A-Za-z\s-ÏÖÄÂÁÀÉÈéèêôîïöäâáà]+$');
-    var mailReg = new RegExp('^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-ZÀ-ÿ\-0-9]+\.)+[a-zA-ZÀ-ÿ]{2,}))$');
-    //var mailReg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-ZÀ-ÿ\-0-9]+\.)+[a-zA-ZÀ-ÿ]{2,}))$/;
+    var mailReg = new RegExp('^([a-zA-ZÀ-ÿ0-9_\.\-])+\@(([a-zA-ZÀ-ÿ0-9\-])+\\.)+([a-zA-ZÀ-ÿ0-9]{2,4})+$');
     var passReg = new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-zÀ-ÿ\\d@$!%*?&]{8,}$');
 
     //verify name
@@ -138,8 +146,7 @@ function verify() {
 
     //verify mail
     if (mail != '') {
-        console.log(mail);
-        if (mailReg.exec(String(mail).toLowerCase)) {
+        if (mailReg.exec(mail)) {
             pmail.innerText = '';
         } else {
             pmail.innerText = 'Invalid mail';
