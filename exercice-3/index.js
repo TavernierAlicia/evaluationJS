@@ -254,13 +254,8 @@ function endPart(won) {
 }
 
 function show(accurateGames, playerOneScore, playerTwoScore) {
-    //var gamesH3 = document.querySelector(gamesH3);
     document.getElementById('gamesH3').innerText = 'Number of accurates games : '+accurateGames;
-
-    //var pl1H3 = document.querySelector('pl1H3');
     document.getElementById('pl1H3').innerText = 'Player X score : '+playerOneScore;
-
-    //var pl2H3 = document.querySelector(pl2H3);
     document.getElementById('pl2H3').innerText = 'Player O score : '+playerTwoScore;
 
 
@@ -269,4 +264,4 @@ function show(accurateGames, playerOneScore, playerTwoScore) {
 //PROGRAM
 writeHtml();
 start();
-//show(accurateGames, playerOneScore, playerTwoScore);
+

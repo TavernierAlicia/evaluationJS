@@ -5,6 +5,27 @@
 		<title>Exercice 5</title>
 	</head>
 	<body>
+		<h1>Enter your informations</h1>
+		<form>
+			<label for="name" style="display: block;">Enter your name here</label>
+			<p id="pname"></p>
+			<input type="text" id="name" style="display: block;">
+
+			<label for="surname" style="display: block;">Enter your surname here</label>
+			<p id="psurname"></p>
+			<input name="surname" type="text" id="surname" style="display: block;">
+
+			<label for="mail" style="display: block;">Enter your mail here</label>
+			<p id="pmail"></p>
+			<input name="mail" type="text" id="mail" style="display: block;">
+
+			<label for="pass" style="display: block;">Enter a password with at least 1 maj, 1min, 1 number and 1 special char.</label>
+			<p id="ppass"></p>
+			<input name="pass" type="password" id="pass" style="display: block;">
+
+			<div onclick="verify()" style="margin-top: 10px; border-width: 2px; border-style: solid; width: 70px; height: 30px; text-align: center;">Submit</div>
+
+		</form>
 		<script src="./index.js"></script>
 	</body>
 </html>

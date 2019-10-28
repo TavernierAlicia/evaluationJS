@@ -1,3 +1,7 @@
+//WARNING: code only availlable on Firefox and Chrome
+//Firefox : go to about:config and set Find security.fileuri.strict_origin_policy parameter false
+//Chrome : launch chrome with the following command "chrome --allow-file-access-from-files" then access to the page
+
 'use strict';
 var country;
 var add;
