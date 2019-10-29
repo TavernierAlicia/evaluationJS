@@ -3,16 +3,16 @@
 function verify() {
 
     //get inputs values
-    var name = document.getElementById("name").value
-    var surname = document.getElementById("surname").value
-    var mail = document.getElementById("mail").value
-    var pass = document.getElementById("pass").value
+    var name = document.getElementById("name").value;
+    var surname = document.getElementById("surname").value;
+    var mail = document.getElementById("mail").value;
+    var pass = document.getElementById("pass").value;
 
     //get erroring p
-    var pname = document.getElementById("pname")
-    var psurname = document.getElementById("psurname")
-    var pmail = document.getElementById("pmail")
-    var ppass = document.getElementById("ppass")
+    var pname = document.getElementById("pname");
+    var psurname = document.getElementById("psurname");
+    var pmail = document.getElementById("pmail");
+    var ppass = document.getElementById("ppass");
 
     //create regexes
     var nameReg = new RegExp('^[A-Za-z\s-ÏÖÄÂÁÀÉÈéèêôîïöäâáà]+$');
