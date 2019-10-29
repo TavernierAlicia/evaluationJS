@@ -15,9 +15,9 @@ function verify() {
     var ppass = document.getElementById("ppass");
 
     //create regexes
-    var nameReg = new RegExp('^[A-Za-z\s-ÏÖÄÂÁÀÉÈéèêôîïöäâáà]+$');
+    var nameReg = new RegExp('^[A-Za-zÀ-ÿ\s -]+$');
     var mailReg = new RegExp('^([a-zA-ZÀ-ÿ0-9_\.\-])+\@(([a-zA-ZÀ-ÿ0-9\-])+\\.)+([a-zA-ZÀ-ÿ0-9]{2,4})+$');
-    var passReg = new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-zÀ-ÿ\\d@$!%*?&]{8,}$');
+    var passReg = new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-zÀ-ÿ\\d@$!%*+#=/\\_-?&]{8,}$');
 
     //verify name
     if (name != '') {
