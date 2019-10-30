@@ -1,5 +1,6 @@
 'use strict';
 
+//function way
 function getBar() {
 	var elBody = document.querySelector('body');
 	var elDiv = document.createElement('div');
