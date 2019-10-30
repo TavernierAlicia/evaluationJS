@@ -38,10 +38,12 @@ function checkPalindrome() {
 		j--;
 	}
 	console.log('true');
+	//show result
 	var elH2 = document.createElement('h2');
 	elH2.innerHTML = '"'+word+'" est un palindrome';
 	elBody.appendChild(elH2);
 	return true;
 }
+//launch
 checkPalindrome();
 
