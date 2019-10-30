@@ -60,7 +60,7 @@ GridGenerator.prototype.randomNumber = function(min, max) {
 
 /**
  * randomColor
- * @return {string} color
+ * @return {string}
  */
 GridGenerator.prototype.randomColor = function() {
 	var colors = ['red', 'yellow', 'blue', 'red', 'green'];
