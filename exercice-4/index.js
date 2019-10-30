@@ -9,29 +9,26 @@ var add;
 var renderWorldMap = { 
     selectMap() {
 
-        //get into <object>
-        var svg = document.getElementById('svgPic');
-        svg.addEventListener("load", function () {
+        //get into div
+        var svg = document.querySelector('#svg');
 
-            var inSvg = svg.contentDocument;
+        //get all paths
+        var svgPath = svg.querySelectorAll('path');
+        var elUl = document.querySelector('#list');
 
-            for (var i = 0; i < 338; i++) {
-                //select all paths to add event
-                var svgPath = inSvg.querySelectorAll('path');
+        //affect event to each path with id
+        for (var i = 0; i < svgPath.length; i++) {
 
-                /*if (svgPath[i] == undefined){
-                    console.log(i);
-                    break;
-                }*/
+            var countryInList = document.createElement('li');
+            countryInList.innerText = svgPath[i].id;
+            countryInList.setAttribute('id', svgPath[i].id);
+            elUl.appendChild(countryInList);
 
-                //set function on click
-                svgPath[i].addEventListener('click', renderWorldMap.click, false);
-                svgPath[i].addEventListener('mouseenter', renderWorldMap.hover, false);
-                svgPath[i].addEventListener('mouseout', renderWorldMap.unhover, false);
-
-            }  
-
-        })
+            //set event
+            svgPath[i].addEventListener('click', renderWorldMap.click, false);
+            svgPath[i].addEventListener('mouseenter', renderWorldMap.hover, false);
+            svgPath[i].addEventListener('mouseout', renderWorldMap.unhover, false);
+        }  
     },        
 
     click(elem) {
@@ -41,8 +38,8 @@ var renderWorldMap = {
         if (elem.target.style.fill == 'rgb(176, 224, 230)' || elem.target.style.fill == 'rgb(0, 0, 0)') {
             
             //set red
-            var colour = '#B22222';
-            elem.target.style.fill = colour;
+            var color = '#B22222';
+            elem.target.style.fill = color;
 
             //call createlist
             add = true;
@@ -51,8 +48,7 @@ var renderWorldMap = {
         //if red zone
         } else {
             //set black
-            colour = '#000000';
-            elem.target.style.fill = colour;  
+            elem.target.style.fill = '#000000';  
             add = false; 
             renderWorldMap.createList(country, add);         
         }
@@ -61,11 +57,11 @@ var renderWorldMap = {
     hover(elem) {
         //if color is not red
         if (elem.target.style.fill != 'rgb(178, 34, 34)') {
-            var colour = '#B0E0E6';
+            var color = '#B0E0E6';
             //get id
             country = elem.target.id;
             //set blue
-            elem.target.style.fill = colour;
+            elem.target.style.fill = color;
             //show name elemId
             add = true; 
             renderWorldMap.createList(country, add);  
@@ -73,12 +69,12 @@ var renderWorldMap = {
     }, 
 
     unhover(elem){
-        var colour = '#000000';
+        var color = '#000000';
         //if not red
         if (elem.target.style.fill != 'rgb(178, 34, 34)') {
             country = elem.target.id;
             //set color
-            elem.target.style.fill = colour;
+            elem.target.style.fill = color;
             //hide name elemId
             add = false; 
             renderWorldMap.createList(country, add);  
@@ -89,20 +85,22 @@ var renderWorldMap = {
     },
 
     createList(country, add){
-        console.log(country);
-        var elBody = document.querySelector('body');
+        var elSelected = document.querySelector('#selected');
         if (add == true) {
-            var elTd = document.createElement('td');
-            
-            elTd.setAttribute('id', country);
-            elTd.innerText = country+', ';
+            var elLi = document.createElement('li');
+            elLi.style.display = 'inline-block';
+            elLi.style.marginRight = '3px';
+            elLi.setAttribute('id', country+'text');
+            elLi.innerText = country+', ';
 
-            elBody.appendChild(elTd);
+            elSelected.appendChild(elLi);
             
         } else {
-            console.log(country);
-            var remp = document.getElementById(country);
-            remp.remove();
+            var remp = document.getElementById(country+'text');
+            if (remp != null) {
+                remp.remove();
+            }
+            
         }
     }
 }
